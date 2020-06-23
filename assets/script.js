@@ -1,30 +1,76 @@
 
+var playButton = document.querySelector("#play");
+var minutesDisplay = document.querySelector("#minutes");
+var secondsDisplay = document.querySelector("#seconds");
+var quizMinutesInput = document.querySelector("#quiz-minutes");
 
 
-var mainEl = document.getElementById("main");
-var readEl = document.getElementById("read");
-var timerEl = document.getElementById("countdown");
-var bodyEl = document.createElement("div");
 
-var i = 0;
+var totalSeconds = 0;
+var secondsElapsed = 0;
+var interval;
 
-// var millisecondsPerWord = prompt("How many milliseconds between words would you like?");
+// this function runs once a second
+function runClockCb() {
+  secondsElapsed++;
+  
+  // change the display
+  minutesDisplay.textContent = Math.floor((totalSeconds - secondsElapsed) / 60);
+  secondsDisplay.textContent = (totalSeconds - secondsElapsed) % 60;
 
-function prepareRead() {
-  var timeLeft = 5;
-
-  var timeInterval = setInterval(function() {
-    timerEl.textContent = timeLeft + " ";
-    timeLeft--;
-
-    if (timeLeft < 0) {
-      timerEl.textContent = "";
-      speedRead();
-      clearInterval(timeInterval);
-    }
-
-  }, 1000);
+  // we have to stop it at 0
+  if (secondsElapsed >= totalSeconds) {
+    clearInterval(interval);
+  }
 }
+
+
+
+function startTimer() {
+  // Write code to start the timer here
+
+  var minutes = parseInt(quizMinutesInput.value);
+  // set time using totalSeconds
+  totalSeconds = minutes * 60;
+  // initialize seconds on the play button
+  secondsElapsed = 0;
+
+  if (typeof interval !== 'undefined') {
+    // if we have an interval we want to clear it
+    clearInterval(interval);
+  }
+
+  // keep track of our interval
+  interval = setInterval(runClockCb, 1000);
+}
+
+playButton.addEventListener("click", startTimer);
+
+
+// var mainEl = document.getElementById("main");
+// var readEl = document.getElementById("read");
+// var timerEl = document.getElementById("countdown");
+// var bodyEl = document.createElement("div");
+
+// var i = 0;
+
+// // var millisecondsPerWord = prompt("How many milliseconds between words would you like?");
+
+// function prepareRead() {
+//   var timeLeft = 5;
+
+//   var timeInterval = setInterval(function() {
+//     timerEl.textContent = timeLeft + " ";
+//     timeLeft--;
+
+//     if (timeLeft < 0) {
+//       timerEl.textContent = "";
+//       speedRead();
+//       clearInterval(timeInterval);
+//     }
+
+//   }, 1000);
+// }
 
 
 // function speedRead() {
@@ -41,7 +87,7 @@ function prepareRead() {
 //   }, millisecondsPerWord);
 // }
 
-prepareRead();
+//prepareRead();
 
 // create a list of questions and answers
 var questionList = [

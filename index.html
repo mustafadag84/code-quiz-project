@@ -12,13 +12,37 @@
 
   <div class="container">
     <h1 class="welcome">Welcome to Code Quiz</h1>
-    <h2 id="countdown">
-      </h1>
-      <h3 id="main">
-    </h2>
+    <!-- <h2 id="countdown">
+    </h1>
+    <h3 id="main">
+  </h2> -->
+  <div class="timer">
+    <div id="hand"></div>
+    <div class="controls">
+
+      <div class="time">
+        <div id="minutes">1</div>
+        <div id="seconds">00</div>
+      </div>
+
+      <div class="buttons">
+        <button aria-label="play" id="play">
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </button>
+        <h1>START</h1>
+      </div>
+    </div>
+  </div>
+  <div class="inputs">
+    <div class="input-group">
+      <label for="quiz-minutes">Minute of Quiz</label>
+      <input type="number" name="work" id="quiz-minutes" value="1" />
+    </div>
+
   </div>
 
-  <h1 id="question" data-question=""></h1>
+
+    <h1 id="question" data-question=""></h1>
   <ul>
     <li>
       <button id="button-a" data-answer="a">A: </button>
@@ -35,6 +59,9 @@
   </ul>
   <p id="score"></p>
 
+  </div>
+
+  
   <script src="assets/questions.js"></script>
   <script src="assets/script.js"></script>
 </body>

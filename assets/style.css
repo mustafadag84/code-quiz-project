@@ -1,0 +1,114 @@
+body {
+    font-size: 14px;
+    background-color: #fdfdfd;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  header {
+    text-align: center;
+    color: tomato;
+    font-family: "Amatic SC", cursive;
+  }
+  
+  h1 {
+    font-size: 3.5em;
+  }
+  
+  input {
+    border: 5px solid tomato;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 2em;
+    color: tomato;
+    width: 100%;
+  }
+  
+  .container {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    color: rgb(224, 66, 38);
+    user-select: none;
+  }
+  
+  .timer {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: rgb(255, 71, 71);
+    border-radius: 10%;
+    position: relative;
+  }
+  
+  .timer::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 290px;
+    width: 290px;
+    background-color: #fdfdfd;
+    border-radius: 50%;
+  }
+  
+  .controls {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .status {
+    margin-bottom: 15px;
+  }
+  
+  .time {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .time::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  
+  #minutes {
+    font-size: 6em;
+    float: left;
+    margin-left: 25%;
+  }
+  
+  #seconds {
+    font-size: 4em;
+    float: left;
+  }
+  
+  button {
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    margin-top: 10px;
+    border-radius: 10%;
+    font-size: 1.5em;
+    background-color: rgb(219, 68, 41);
+    border: none;
+    color: #fdfdfd;
+    cursor: pointer;
+  }
+  
+  .input-group {
+    margin-top: 20px;
+    float: left;
+    width: 20%;
+    padding: 10px;
+  }
+  
+  .inputs::after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  
