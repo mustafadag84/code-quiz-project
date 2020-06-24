@@ -4,64 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Josefin+Sans&display=swap" rel="stylesheet" />
   <title>Code Quiz</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
-
-  <div class="container">
+  <header>
     <h1 class="welcome">Welcome to Code Quiz</h1>
-    <!-- <h2 id="countdown">
-    </h1>
-    <h3 id="main">
-  </h2> -->
-  <div class="timer">
-    <div id="hand"></div>
-    <div class="controls">
+  </header>
+  <div class="container">
+    <div class="timer">
+      <div class="controls">
+        <div class="time">
+          <div id="minutes">1</div>
+          <div id="seconds">00</div>
+        </div>
 
-      <div class="time">
-        <div id="minutes">1</div>
-        <div id="seconds">00</div>
-      </div>
-
-      <div class="buttons">
-        <button aria-label="play" id="play">
-          <i class="fa fa-play" aria-hidden="true"></i>
-        </button>
-        <h1>START</h1>
+        <div class="button">
+          <button aria-label="play" id="play">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </button>
+          <h1>START</h1>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="inputs">
-    <div class="input-group">
-      <label for="quiz-minutes">Minute of Quiz</label>
-      <input type="number" name="work" id="quiz-minutes" value="1" />
+    <div class="inputs">
+      <div class="input-group">
+        <label for="quiz-minutes">Minute of Quiz</label>
+        <input type="number" name="quiz" id="quiz-minutes" value="1" />
+      </div>
     </div>
-
-  </div>
 
 
     <h1 id="question" data-question=""></h1>
-  <ul>
-    <li>
-      <button id="button-a" data-answer="a">A: </button>
-      <span id="answer-a"></span></li>
-    <li>
-      <button id="button-b" data-answer="b">B: </button>
-      <span id="answer-b"></span></li>
-    <li>
-      <button id="button-c" data-answer="c">C: </button>
-      <span id="answer-c"></span></li>
-    <li>
-      <button id="button-d" data-answer="d">D: </button>
-      <span id="answer-d"></span></li>
-  </ul>
-  <p id="score"></p>
+    <ul>
+      <li>
+        <button id="button-a" data-answer="a">A </button>
+        <span id="answer-a"></span></li>
+      <li>
+        <button id="button-b" data-answer="b">B </button>
+        <span id="answer-b"></span></li>
+      <li>
+        <button id="button-c" data-answer="c">C </button>
+        <span id="answer-c"></span></li>
+      <li>
+        <button id="button-d" data-answer="d">D </button>
+        <span id="answer-d"></span></li>
+    </ul>
+    <p id="score"></p>
 
   </div>
 
-  
+
   <script src="assets/questions.js"></script>
   <script src="assets/script.js"></script>
 </body>

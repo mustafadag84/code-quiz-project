@@ -111,4 +111,12 @@ body {
     display: block;
     clear: both;
   }
-  
+  #question {
+    font-size: 20px;
+  }  
+  #answer-a,
+  #answer-b,
+  #answer-c, 
+  #answer-d {
+    font-size: 30px;
+  }
