@@ -3,12 +3,23 @@ var playButton = document.querySelector("#play");
 var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 var quizMinutesInput = document.querySelector("#quiz-minutes");
+var resultsSection = document.querySelector("#results");
+var correctAnswersSpan = document.querySelector("#correct-answers");
+var wrongAnswersSpan = document.querySelector("#wrong-answers");
+var questionSection = document.querySelector("#question-section");
+var scores = document.querySelector("#scores");
 
 
+scores.addEventListener("click", function(event){
+  var savedScores = {"correctAnswers": correctAnswers, "wrongAnswers": wrongAnswers}
+  localStorage.setItem("test-result",JSON.stringify(savedScores)); 
+})
 
 var totalSeconds = 0;
 var secondsElapsed = 0;
 var interval;
+var correctAnswers = 0;
+var wrongAnswers = 0;
 
 // this function runs once a second
 function runClockCb() {
@@ -21,6 +32,9 @@ function runClockCb() {
   // we have to stop it at 0
   if (secondsElapsed >= totalSeconds) {
     clearInterval(interval);
+    correctAnswersSpan.textContent = correctAnswers;
+    wrongAnswersSpan.textContent = wrongAnswers;
+    resultsSection.style.display = "block";
   }
 }
 
@@ -28,7 +42,7 @@ function runClockCb() {
 
 function startTimer() {
   // Write code to start the timer here
-
+  questionSection.style.display = "block";
   var minutes = parseInt(quizMinutesInput.value);
   // set time using totalSeconds
   totalSeconds = minutes * 60;
@@ -38,6 +52,7 @@ function startTimer() {
   if (typeof interval !== 'undefined') {
     // if we have an interval we want to clear it
     clearInterval(interval);
+
   }
 
   // keep track of our interval
@@ -171,6 +186,7 @@ function buttonHandler(event) {
 
   if(questionList[questionId]["userAnswer"] === questionList[questionId]["correct"]){
       score.textContent = "You got it correct";
+      correctAnswers++;
       setTimeout(function(){
           questionIndex++;
           initializeQuestion();
@@ -179,6 +195,7 @@ function buttonHandler(event) {
   }
   else{
       score.textContent = "You got it wrong";
+      wrongAnswers++;
       setTimeout(function(){
           questionIndex++;
           initializeQuestion();

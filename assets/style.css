@@ -124,4 +124,6 @@ button {
   font-size: 30px;
 }
 
-
+#results, #question-section{
+  display: none;
+}
